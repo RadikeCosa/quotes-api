@@ -1,6 +1,6 @@
 import { connectDB } from '../src/infraestructure/database/db';
 import { seedDB } from '../src/infraestructure/database/seed';
-import { MongoQuoteRepository } from '../src/infraestructure/quote.repository';
+import { MongoQuoteRepository } from '../src/infraestructure/repositories/quote.repository';
 import { GetRandomQuoteUseCase } from './application/use-cases/get-random-quote';
 import { GetAllQuotesUseCase } from './application/use-cases/get-all-quotes';
 import { CreateQuoteUseCase } from './application/use-cases/create-quote';
