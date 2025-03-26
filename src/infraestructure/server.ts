@@ -8,11 +8,19 @@ export const createServer = (): Application => {
   const app = express();
 
   // Middleware
+
   app.use(express.json()); // Para parsear cuerpos JSON
   app.use(
     cors({
-      origin: 'https://fitness-study-app.vercel.app', // Solo permite este origen
-      methods: ['GET', 'POST', 'PUT'], // Métodos permitidos
+      origin: (origin, callback) => {
+        console.log('Origin recibido:', origin);
+        if (origin === 'https://fitness-study-app.vercel.app') {
+          callback(null, true);
+        } else {
+          callback(new Error('Not allowed by CORS'));
+        }
+      },
+      methods: ['GET', 'POST', 'PUT'],
     })
   );
 
