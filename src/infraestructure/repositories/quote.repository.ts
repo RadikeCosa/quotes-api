@@ -1,6 +1,6 @@
-import { Quote } from '../domain/quote';
-import { QuoteRepository } from '../interfaces/quote.repository';
-import { QuoteModel, IQuote } from './database/models/qoute.model';
+import { Quote } from '../../domain/quote';
+import { QuoteRepository } from '../../interfaces/quote.repository';
+import { QuoteModel, IQuote } from '../database/models/quote.model';
 
 export class MongoQuoteRepository implements QuoteRepository {
   async findRandom(): Promise<Quote | null> {

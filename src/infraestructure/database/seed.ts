@@ -1,4 +1,4 @@
-import { QuoteModel, IQuote } from './models/qoute.model';
+import { QuoteModel, IQuote } from './models/quote.model';
 
 const initialQuotes: IQuote[] = [
   { text: 'El esfuerzo de hoy es el éxito de mañana.', author: 'Anónimo' },
