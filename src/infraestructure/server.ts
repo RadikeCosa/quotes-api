@@ -12,7 +12,7 @@ export const createServer = (): Application => {
   app.use(express.json()); // Para parsear cuerpos JSON
   app.use(
     cors({
-      origin: ['https://fitness-study-app.vercel.app', 'http://localhost:3001'],
+      origin: ['https://fitness-study-app.vercel.app', 'http://localhost:5173'],
       methods: ['GET', 'POST', 'PUT', 'DELETE'],
     })
   );
