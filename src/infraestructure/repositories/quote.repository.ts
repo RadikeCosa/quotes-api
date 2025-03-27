@@ -41,4 +41,8 @@ export class MongoQuoteRepository implements QuoteRepository {
       updatedDoc._id.toString()
     );
   }
+  async delete(id: string): Promise<boolean> {
+    const result = await QuoteModel.findByIdAndDelete(id).exec();
+    return !!result; // Devuelve true si se eliminó, false si no existía
+  }
 }

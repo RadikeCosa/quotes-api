@@ -3,6 +3,7 @@ import { GetRandomQuoteUseCase } from '../../application/use-cases/get-random-qu
 import { GetAllQuotesUseCase } from '../../application/use-cases/get-all-quotes';
 import { CreateQuoteUseCase } from '../../application/use-cases/create-quote';
 import { UpdateQuoteUseCase } from '../../application/use-cases/update-quote';
+import { DeleteQuoteUseCase } from '../../application/use-cases/delete-quote';
 import { QuoteRepository } from '../../interfaces/quote.repository';
 
 export class QuoteController {
@@ -62,6 +63,19 @@ export class QuoteController {
         return res.status(404).json({ message: 'Quote not found' });
       }
       res.json(updatedQuote);
+    } catch (error) {
+      res.status(500).json({ message: 'Internal server error' });
+    }
+  };
+  deleteQuote = async (req: Request, res: Response) => {
+    try {
+      const { id } = req.params;
+      const useCase = new DeleteQuoteUseCase(this.quoteRepository);
+      const deleted = await useCase.execute(id);
+      if (!deleted) {
+        return res.status(404).json({ message: 'Quote not found' });
+      }
+      res.status(204).send(); // 204 No Content para eliminación exitosa
     } catch (error) {
       res.status(500).json({ message: 'Internal server error' });
     }

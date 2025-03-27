@@ -5,4 +5,5 @@ export interface QuoteRepository {
   findAll(): Promise<Quote[]>;
   save(quote: Quote): Promise<Quote>;
   update(id: string, quote: Quote): Promise<Quote | null>;
+  delete(id: string): Promise<boolean>; // Nuevo método para eliminar
 }

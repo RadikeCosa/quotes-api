@@ -22,5 +22,9 @@ export const createQuoteRoutes = (quoteRepository: QuoteRepository) => {
     await controller.updateQuote(req, res);
   });
 
+  router.delete('/:id', async (req: Request, res: Response) => {
+    await controller.deleteQuote(req, res);
+  });
+
   return router;
 };

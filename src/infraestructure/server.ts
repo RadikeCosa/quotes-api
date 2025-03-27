@@ -13,7 +13,7 @@ export const createServer = (): Application => {
   app.use(
     cors({
       origin: ['https://fitness-study-app.vercel.app', 'http://localhost:3001'],
-      methods: ['GET', 'POST', 'PUT'],
+      methods: ['GET', 'POST', 'PUT', 'DELETE'],
     })
   );
 
