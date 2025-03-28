@@ -16,14 +16,14 @@ const swaggerOptions = {
     },
     servers: [
       {
-        url: 'https://fitness-study-app.vercel.app', // URL de producción
+        url: 'https://fitness-study-app.vercel.app',
       },
       {
-        url: 'http://localhost:3000', // URL de desarrollo
+        url: 'http://localhost:3000',
       },
     ],
   },
-  apis: ['./src/**/*.ts'], // Ruta a tus archivos con anotaciones Swagger
+  apis: ['./src/**/*.ts'],
 };
 
 const swaggerDocs = swaggerJsDoc(swaggerOptions);
@@ -31,8 +31,7 @@ const swaggerDocs = swaggerJsDoc(swaggerOptions);
 export const createServer = (): Application => {
   const app = express();
 
-  // Middleware
-  app.use(express.json()); // Para parsear cuerpos JSON
+  app.use(express.json());
   app.use(
     cors({
       origin: ['https://fitness-study-app.vercel.app', 'http://localhost:5173'],
@@ -40,16 +39,8 @@ export const createServer = (): Application => {
     })
   );
 
-  // Swagger
+  // Configuración de Swagger
   app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
   return app;
-};
-
-export const startServer = (app: Application) => {
-  const PORT = process.env.PORT || 3000;
-  app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-    console.log(`Swagger Docs available at http://localhost:${PORT}/api-docs`);
-  });
 };

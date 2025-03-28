@@ -8,11 +8,11 @@
   ],
   "routes": [
     {
-      "src": "/api-docs",
+      "src": "/api/quote/(.*)",
       "dest": "api/index.ts"
     },
     {
-      "src": "/api/quote/(.*)",
+      "src": "/api-docs",
       "dest": "api/index.ts"
     }
   ]
