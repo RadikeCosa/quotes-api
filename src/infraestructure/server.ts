@@ -16,7 +16,7 @@ const swaggerOptions = {
     },
     servers: [
       {
-        url: 'http://localhost:3000', // Cambia esto según tu entorno
+        url: process.env.RENDER_EXTERNAL_URL || 'http://localhost:3000', // Usa la URL de Render en producción
       },
     ],
   },
