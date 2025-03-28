@@ -20,7 +20,7 @@ const swaggerOptions = {
       },
     ],
   },
-  apis: ['./src/infraestructure/routes/*.js'], // Cambia esto según la ubicación de tus archivos de rutas
+  apis: ['./dist/infraestructure/routes/*.js'], // Cambia esto para producción
 };
 
 const swaggerSpec = swaggerJsdoc(swaggerOptions);
