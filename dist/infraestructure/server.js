@@ -34,6 +34,7 @@ const createServer = () => {
     app.use((0, cors_1.default)({
         origin: (origin, callback) => {
             console.log('Origin recibido:', origin);
+            console.log(swaggerSpec);
             if (!origin || origin === 'https://fitness-study-app.vercel.app') {
                 // Permitir solicitudes sin origen (por ejemplo, desde Postman o Swagger UI)
                 callback(null, true);
