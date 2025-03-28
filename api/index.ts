@@ -24,7 +24,7 @@ const bootstrap = async () => {
 
 // Exportación para Vercel
 export default async (req: any, res: any) => {
-  console.log(`Request received: ${req.method} ${req.url}`);
+  console.log(`Request received guero: ${req.method} ${req.url}`);
   const server = await bootstrap();
   return server(req, res); // Vercel usa este handler para todas las rutas
 };
