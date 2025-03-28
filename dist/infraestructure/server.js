@@ -24,7 +24,7 @@ const swaggerOptions = {
             },
         ],
     },
-    apis: ['./src/routes/*.ts'], // Cambia esto según la ubicación de tus archivos de rutas
+    apis: ['./src/infraestructure/routes/*.ts'], // Cambia esto según la ubicación de tus archivos de rutas
 };
 const swaggerSpec = (0, swagger_jsdoc_1.default)(swaggerOptions);
 const createServer = () => {
