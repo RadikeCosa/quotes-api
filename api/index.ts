@@ -4,27 +4,33 @@ import { MongoQuoteRepository } from '../src/infraestructure/repositories/quote.
 import { createServer, startServer } from '../src/infraestructure/server';
 import { createQuoteRoutes } from '../src/infraestructure/routes/quote.routes';
 
+let app: any; // Variable para almacenar la instancia del servidor
+
 const bootstrap = async () => {
-  await connectDB();
-  await seedDB();
+  if (!app) {
+    await connectDB();
+    await seedDB();
 
-  const app = createServer();
-  const quoteRepo = new MongoQuoteRepository();
-  const quoteRoutes = createQuoteRoutes(quoteRepo);
-  app.use('/api/quote', quoteRoutes);
+    const server = createServer();
+    const quoteRepo = new MongoQuoteRepository();
+    const quoteRoutes = createQuoteRoutes(quoteRepo);
+    server.use('/api/quote', quoteRoutes);
 
+    app = server; // Guarda la instancia del servidor
+  }
   return app;
 };
 
+// Exportación para Vercel
 export default async (req: any, res: any) => {
-  const app = await bootstrap();
-  return app(req, res);
+  const server = await bootstrap();
+  return server(req, res);
 };
 
 // Para desarrollo local
 if (require.main === module) {
   bootstrap()
-    .then((app) => startServer(app))
+    .then((server) => startServer(server))
     .catch((error) => {
       console.error('Bootstrap error:', error);
       process.exit(1);
