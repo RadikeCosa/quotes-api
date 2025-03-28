@@ -3,6 +3,7 @@ import { seedDB } from '../src/infraestructure/database/seed';
 import { MongoQuoteRepository } from '../src/infraestructure/repositories/quote.repository';
 import { createServer, startServer } from './infraestructure/server';
 import { createQuoteRoutes } from './infraestructure/routes/quote.routes';
+
 const bootstrap = async () => {
   // Conectar a la base de datos
   await connectDB();
@@ -15,6 +16,9 @@ const bootstrap = async () => {
   const quoteRepo = new MongoQuoteRepository();
   const quoteRoutes = createQuoteRoutes(quoteRepo);
   app.use('/api/quote', quoteRoutes);
+
+  // Mensaje adicional para Swagger
+  console.log('Swagger docs available at /api-docs');
 
   // Iniciar el servidor
   startServer(app);
