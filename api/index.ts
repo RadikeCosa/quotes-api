@@ -1,10 +1,9 @@
 import { connectDB } from '../src/infraestructure/database/db';
 import { seedDB } from '../src/infraestructure/database/seed';
 import { MongoQuoteRepository } from '../src/infraestructure/repositories/quote.repository';
-import { createServer } from '../src/infraestructure/server'; // Quitamos startServer de aquí
+import { createServer } from '../src/infraestructure/server';
 import { createQuoteRoutes } from '../src/infraestructure/routes/quote.routes';
 
-// Variable para almacenar la instancia del servidor
 let app: any;
 
 const bootstrap = async () => {
