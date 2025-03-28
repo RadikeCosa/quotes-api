@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const db_1 = require("../src/infraestructure/database/db");
-const seed_1 = require("../src/infraestructure/database/seed");
-const quote_repository_1 = require("../src/infraestructure/repositories/quote.repository");
+const db_1 = require("./infraestructure/database/db");
+const seed_1 = require("./infraestructure/database/seed");
+const quote_repository_1 = require("./infraestructure/repositories/quote.repository");
 const server_1 = require("./infraestructure/server");
 const quote_routes_1 = require("./infraestructure/routes/quote.routes");
 const bootstrap = async () => {

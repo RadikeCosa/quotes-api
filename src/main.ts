@@ -1,6 +1,6 @@
-import { connectDB } from '../src/infraestructure/database/db';
-import { seedDB } from '../src/infraestructure/database/seed';
-import { MongoQuoteRepository } from '../src/infraestructure/repositories/quote.repository';
+import { connectDB } from './infraestructure/database/db';
+import { seedDB } from './infraestructure/database/seed';
+import { MongoQuoteRepository } from './infraestructure/repositories/quote.repository';
 import { createServer, startServer } from './infraestructure/server';
 import { createQuoteRoutes } from './infraestructure/routes/quote.routes';
 
