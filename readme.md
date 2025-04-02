@@ -10,7 +10,7 @@ This project provides an API built with TypeScript for accessing a collection of
 
 - **Retrieve Quotes:** Get random quotes or quotes by specific criteria.
 - **TypeScript:** Built with TypeScript for type safety and maintainability.
-- **Vercel Deployment:** Hosted on Vercel for easy deployment and scalability.
+- **Render Deployment:** Hosted on Render for easy deployment and scalability.
 
 ## 🛠️ Installation
 
