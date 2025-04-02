@@ -1,4 +1,3 @@
-````
 # Quotes API 🚀
 
 A simple API for retrieving quotes.
@@ -94,4 +93,3 @@ Contributions are welcome! Here's how you can contribute:
 ## 🔗 Links
 
 - **Homepage:** [https://quotes-api-hvf9.onrender.com/api-docs/](https://quotes-api-hvf9.onrender.com/api-docs/)
-````
