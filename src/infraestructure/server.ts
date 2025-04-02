@@ -16,11 +16,11 @@ const swaggerOptions = {
     },
     servers: [
       {
-        url: process.env.RENDER_EXTERNAL_URL || 'http://localhost:3000', // Usa la URL de Render en producción
+        url: process.env.RENDER_EXTERNAL_URL || 'http://localhost:3000', //
       },
     ],
   },
-  apis: ['./dist/infraestructure/routes/*.js'], // Cambia esto para producción
+  apis: ['./dist/infraestructure/routes/*.js'],
 };
 
 const swaggerSpec = swaggerJsdoc(swaggerOptions);
@@ -36,8 +36,7 @@ export const createServer = (): Application => {
         console.log('Origin recibido:', origin);
         console.log(swaggerSpec);
 
-        if (!origin || origin === 'https://fitness-study-app.vercel.app') {
-          // Permitir solicitudes sin origen (por ejemplo, desde Postman o Swagger UI)
+        if (origin === 'https://fitness-study-app.vercel.app') {
           callback(null, true);
         } else {
           callback(new Error('Not allowed by CORS'));
